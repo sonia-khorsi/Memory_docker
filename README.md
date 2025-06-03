@@ -37,9 +37,6 @@ Open your browser and go to the local address shown in the terminal (usually htt
 3. Try to find all matching pairs with as few moves as possible!
 4. Your time, moves, and points are tracked.
 
-## Author
-- **Ryhad B.** ([RyderBlack on GitHub](https://github.com/RyderBlack))
-
 ---
 
 This project was bootstrapped with [Vite](https://vitejs.dev/) and uses React 19.
