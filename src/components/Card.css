@@ -1,0 +1,61 @@
+.card {
+  width: 80px;
+  height: 110px;
+  perspective: 600px;
+  display: inline-block;
+  margin: 8px;
+  cursor: pointer;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 2, 0.6, 1);
+  transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(80,0,80,0.15), 0 0 0 4px red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-family: 'Baloo 2', 'Comic Sans MS', cursive, sans-serif;
+  transition: box-shadow 0.2s;
+}
+
+.card-front {
+  background: linear-gradient(135deg, #ffe066 80%, #a259f7 100%);
+  color: #222;
+  border: 3px solid #222;
+  z-index: 2;
+  transform: rotateY(180deg);
+}
+
+.card-back {
+  background-image: url('../assets/C1.jpg');
+  background-size: cover;
+  background-position: center;
+  border: 3px solid red;
+  color: red;
+  box-shadow: 0 4px 16px rgba(162,89,247,0.25), 0 0 0 4px red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  z-index: 3;
+}
+
+.card:hover .card-front, .card:hover .card-back {
+  box-shadow: 0 8px 24px rgba(162,89,247,0.35), 0 0 0 6px red;
+} 

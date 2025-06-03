@@ -1,0 +1,233 @@
+#root {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Creepster', cursive, sans-serif;
+  background: black url('../assets/F1.gif') no-repeat center center fixed;
+  background-size: cover;
+  color: #ff0000;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.memory-game-container {
+  min-height: 100vh;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.85);
+  border: 2px solid #ff0000;
+  box-shadow: 0 0 20px #ff0000;
+  padding: 3rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.memory-game-container h1 {
+  font-size: 4rem; /* Increase font size */
+  color: #ff0000;
+  margin: 1rem 0 1.5rem 0; /* Further increase top margin to push the title lower */
+  text-align: center;
+  font-weight: bold;
+  text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
+}
+
+.game-stats {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 16px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ff0000;
+  text-shadow: 0 0 5px #ff0000;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 20px;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  margin: 32px 0 16px 0;
+  max-width: none;
+}
+
+.victory-message {
+  margin-top: 24px;
+  font-size: 1.5rem;
+  color: #ff0000;
+  font-weight: bold;
+  text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+  animation: pop 0.5s;
+  line-height: 1.5;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.7); opacity: 0; }
+  80% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+button {
+  background: linear-gradient(90deg, #ff0000 70%, #8b0000 100%);
+  color: white;
+  border: 2px solid #8b0000;
+  box-shadow: 0 0 10px #ff0000;
+  border-radius: 12px;
+  padding: 10px 28px;
+  font-size: 1.1rem;
+  font-family: inherit;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 12px;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background: #8b0000;
+  color: #ff0000;
+  box-shadow: 0 0 20px #ff0000;
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Ajout d'effets de sang plus immersifs */
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110%);
+    opacity: 0;
+  }
+}
+
+.blood-drip {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 60px;
+  z-index: 10000;
+  pointer-events: none;
+  background: url('../assets/F1.gif') repeat-x;
+  opacity: 0.7;
+  filter: blur(0.5px) brightness(1.2);
+}
+
+.blood-particle {
+  position: fixed;
+  border-radius: 50%;
+  background: radial-gradient(circle at 60% 40%, #ff0000 80%, #8b0000 100%);
+  opacity: 0.85;
+  z-index: 9999;
+  pointer-events: none;
+  animation: fall 5s linear;
+}
+
+/* Ajout de media queries pour rendre le jeu responsive */
+@media (max-width: 900px) {
+  .memory-game-container {
+    padding: 2rem 0.5rem;
+  }
+  .memory-game-container h1 {
+    font-size: 2.5rem;
+  }
+  .cards-grid {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 700px) {
+  .memory-game-container {
+    padding: 1rem 0.2rem;
+  }
+  .memory-game-container h1 {
+    font-size: 2rem;
+  }
+  .game-stats {
+    flex-direction: column;
+    gap: 10px;
+    font-size: 1rem;
+  }
+  .cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 10px;
+    margin: 16px 0 8px 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .memory-game-container {
+    padding: 0.5rem 0.1rem;
+  }
+  .memory-game-container h1 {
+    font-size: 1.2rem;
+    margin: 0.5rem 0 1rem 0;
+  }
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 6px;
+  }
+  button {
+    font-size: 0.9rem;
+    padding: 7px 10px;
+  }
+}
